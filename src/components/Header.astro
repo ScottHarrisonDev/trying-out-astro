@@ -2,7 +2,12 @@
 ---
 
 <div class="Header">
-	<h1>Testing with Astro</h1>
+	<h1>Test Restaurant</h1>
+	<ul>
+		<li><a href="/">Home</a></li>
+		<li><a href="/blog">Blog</a></li>
+		<li><a href="/contact">Contact</a></li>
+	</ul>
 </div>
 <style>
 	.Header {
@@ -10,5 +15,16 @@
 		color: var(--accent);
 		border: 1px solid var(--accent);
 		padding: 32px;
+		display: flex;
+		justify-content:space-between;
+		align-items: center;
+	}
+	ul {
+		padding: 0;
+		list-style: none;
+		display: flex;
+	}
+	li {
+		padding: 10px;
 	}
 </style>
