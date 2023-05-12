@@ -1,35 +1,25 @@
 ---
----
+import { parsePrice, calculateSubtotalFromLineItems } from '../helpers/commerce'
+interface Props {
+	items: Object[]
+	total: Number
+}
 
+const { items, total } = Astro.props
+
+const subtotal = calculateSubtotalFromLineItems(items)
+---
 <div class="Sidebar">
 	<h3>
-		Todays Menu
+		Totals
 	</h3>
-	<div>
-		Starters
-		<ul>
-			<li>Garlic Bread</li>
-			<li>Chicken Wings</li>
-		</ul>
-	</div>
-	<div>
-		Mains
-		<ul>
-			<li>Roast Chicken</li>
-			<li>Pork Belly</li>
-		</ul>
-	</div>
-	<div>
-		Desserts
-		<ul>
-			<li>Tiramisu</li>
-			<li>Pancakes</li>
-		</ul>
-	</div>
+	<div>Subtotal: £{parsePrice(subtotal)}</div>
+	<div>Discounts: £0</div>
+	<div>Total: £{parsePrice(total)}</div>
 </div>
 <style>
 	.Sidebar {
-		grid-area: sidebar;
+		width: 25%;
 		color: var(--accent);
 		border: 1px solid var(--accent);
 		padding: 32px;

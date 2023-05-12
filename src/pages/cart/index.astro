@@ -1,0 +1,30 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import Sidebar from '../../components/Sidebar.astro'
+import LineItem from '../../components/LineItem.astro';
+
+import { mockGetCartResponse } from '../../mockData/cart'
+
+const { line_items: lineItems, total } = mockGetCartResponse
+---
+
+<Layout htmlTitle="Test Shop | Cart">
+	<section class="cart">
+		<h2>Your Cart</h2>
+		<ul>
+			{lineItems.map((item) => (
+				<li><LineItem item={item} /></li>
+			))}
+		</ul>
+	</section>
+	<Sidebar items={lineItems} total={total} />
+</Layout>
+
+<style>
+	.cart {
+		color: var(--accent);
+		border: 1px solid var(--accent);
+		padding: 32px;
+		width: 100%;
+	}
+</style>
