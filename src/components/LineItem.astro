@@ -1,12 +1,27 @@
 ---
+import { parsePrice } from '../helpers/commerce'
+
 interface Props {
-	item: {title};
+	item: { title, price };
 }
 
 const { item } = Astro.props;
 ---
 
-<div>{ item.title }</div>
+<div class="LineItem">
+	<div>
+		{ item.title }
+	</div>
+	<div>
+		£{ parsePrice(item.price) }
+	</div>
+</div>
 
 <style>
+	.LineItem {
+		display: flex;
+		gap: 20px;
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
 </style>

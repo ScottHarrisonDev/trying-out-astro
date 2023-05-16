@@ -16,6 +16,7 @@ const subtotal = calculateSubtotalFromLineItems(items)
 	<div>Subtotal: £{parsePrice(subtotal)}</div>
 	<div>Discounts: £0</div>
 	<div>Total: £{parsePrice(total)}</div>
+	<button class="Sidebar__checkout-btn">Checkout</button>
 </div>
 <style>
 	.Sidebar {
@@ -23,5 +24,19 @@ const subtotal = calculateSubtotalFromLineItems(items)
 		color: var(--accent);
 		border: 1px solid var(--accent);
 		padding: 32px;
+	}
+	
+	.Sidebar__checkout-btn {
+		background-color: red;
+		padding: 10px 20px;
+		color: white;
+		border: none;
+		width: 100%;
+		margin-top:20px;
+	}
+
+	.Sidebar__checkout-btn:hover {
+		background-color: darkred;
+		cursor: pointer;
 	}
 </style>
