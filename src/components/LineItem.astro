@@ -2,20 +2,32 @@
 import { parsePrice } from '../helpers/commerce'
 
 interface Props {
-	item: { title, price };
+	item: { lineItemId, title, price };
 }
 
 const { item } = Astro.props;
 ---
 
-<div class="LineItem">
+<div class="LineItem" x-data="LineItem">
 	<div>
 		{ item.title }
 	</div>
 	<div>
 		£{ parsePrice(item.price) }
 	</div>
+	<div>
+		<button x-on:click="removeItem(lineItemId)">Remove Item</button>
+	</div>
 </div>
+
+<script define:vars={{ item }}>
+	Alpine.data('LineItem', () => ({
+		item: item,
+		removeItem: (id) => {
+			console.log('remove ID: ' + id)
+		},
+	}))
+</script>
 
 <style>
 	.LineItem {

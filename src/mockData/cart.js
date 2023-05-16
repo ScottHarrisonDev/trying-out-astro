@@ -2,7 +2,7 @@ export const mockGetCartResponse = {
     total: 5200,
     line_items: [
         {
-            id: 2385,
+            lineItemId: 2385,
             price: 3200,
             title: 'T-shirt',
             category: 'Mens',
@@ -13,7 +13,7 @@ export const mockGetCartResponse = {
             }
         },
         {
-            id: 2643,
+            lineItemId: 2643,
             price: 2000,
             title: 'Cap',
             category: 'Accessories',
